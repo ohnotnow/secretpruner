@@ -22,7 +22,10 @@ And on a swarm master run the image :
 ```bash
 docker run --rm -v /var/run/docker.sock:/var/run/docker.sock secretpruner:some-tag
 ```
-It will print out the names of any secrets it removed.
+It will print out the names of any secrets it removed.  You can also run it in as a dry run by setting a PRUNE_DRY_RUN=1 environment variable, eg :
+```bash
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -e PRUNE_DRY_RUN=1 secretpruner:some-tag
+```
 
 ## Exit codes
 
