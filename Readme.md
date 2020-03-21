@@ -32,4 +32,4 @@ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -e PRUNE_DRY_RUN=1 
 
 ## Exit codes
 
-The script will exit with 0 if there were no issues found, 1 if something went wrong.
+The script will exit with 0 if there were no problems, 1 if something went wrong.
