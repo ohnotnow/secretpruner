@@ -36,6 +36,8 @@ def prune_secrets(name):
 
 for secret in client.secrets.list():
     parts = secret.name.split(split_key)
+    if len(parts) != 2:
+        continue
     if date_pattern.match(parts[1]):
         if parts[0] not in secret_counts:
             secret_counts[parts[0]] = 0
