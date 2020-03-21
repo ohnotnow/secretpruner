@@ -3,6 +3,8 @@
 This is a little python script which will loop over docker secrets looking for names that match a pattern, then remove the oldest ones up to a given limit.
 __Note__: The script needs access to the docker socket, so make sure to scan through the code to make sure you trust it.
 
+The script is pretty specific to our way of naming secrets, but hopefully it might give you an idea of how to prune your own ones.
+
 ## Details
 
 Every time we deploy to swarm we generate a new secret with the environment variables needed by the app.  This is the format we use for our dotenv files, so that's the default in the script :
@@ -10,6 +12,7 @@ Every time we deploy to swarm we generate a new secret with the environment vari
 stackname-prod-dotenv-2020-03-20-14-50-33
 ```
 After a while we end up with a lot of old secrets and it gets a bit messy debugging/listing them - so this script will break the secret name up and the date it was last updated.  Then if there are more than a certain number of them - it will prune the oldest until it hits the limit (defined as 'keep' in the script).
+
 
 ## Usage
 
